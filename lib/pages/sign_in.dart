@@ -110,10 +110,14 @@ class _LoginState extends State<Login> {
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8))),
                 ),
-                child: Text(
-                  "Sign in",
-                  style: TextStyle(fontSize: 19),
-                ),
+                child: isLoading
+                    ? CircularProgressIndicator(
+                        color: Colors.white,
+                      )
+                    : Text(
+                        "Sign in",
+                        style: TextStyle(fontSize: 19),
+                      ),
               ),
               const SizedBox(
                 height: 9,
@@ -141,14 +145,10 @@ class _LoginState extends State<Login> {
                           MaterialPageRoute(builder: (context) => Register()),
                         );
                       },
-                      child: isLoading
-                          ? CircularProgressIndicator(
-                              color: Colors.white,
-                            )
-                          : Text('sign up',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  decoration: TextDecoration.underline))),
+                      child: Text('sign up',
+                          style: TextStyle(
+                              fontSize: 18,
+                              decoration: TextDecoration.underline))),
                 ],
               ),
               SizedBox(
